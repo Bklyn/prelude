@@ -1,6 +1,7 @@
 (setq prelude-guru nil)
 (setq sp-use-paredit-bindings nil)
 (setq ibuffer-expert t)
+(desktop-save-mode 1)
 
 (require 'diminish)
 
@@ -11,6 +12,7 @@
 
 (require 'undo-tree)
 (global-undo-tree-mode 1)
+
 (eval-after-load "diminish"
   '(progn
      (eval-after-load "undo-tree"
@@ -23,5 +25,4 @@
      (eval-after-load "whitespace"
        '(diminish 'whitespace-mode ""))))
 
-(global-set-key [remap move-beginning-of-line]
-                'move-beginning-of-line)
+(global-set-key [remap move-beginning-of-line] 'move-beginning-of-line)
