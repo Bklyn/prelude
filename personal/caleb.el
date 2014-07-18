@@ -30,3 +30,4 @@
 
 (global-set-key (kbd "<f2>") 'rgrep)
 (global-set-key (kbd "C-<return>") 'helm-M-x)
+(global-set-key (kbd "s-g") 'projectile-grep)
