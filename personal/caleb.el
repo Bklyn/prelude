@@ -2,6 +2,7 @@
 (setq sp-use-paredit-bindings nil)
 (setq ibuffer-expert t)
 (desktop-save-mode 1)
+(remove-hook 'prog-mode 'flycheck-mode)
 
 (require 'diminish)
 
@@ -26,3 +27,6 @@
        '(diminish 'whitespace-mode ""))))
 
 (global-set-key [remap move-beginning-of-line] 'move-beginning-of-line)
+
+(global-set-key (kbd "<f2>") 'rgrep)
+(global-set-key (kbd "C-<return>") 'helm-M-x)

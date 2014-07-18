@@ -1,1 +1,1 @@
-(load-theme 'wheatgrass)
+(load-theme 'solarized-dark)
