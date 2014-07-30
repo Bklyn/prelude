@@ -30,4 +30,12 @@
 
 (global-set-key (kbd "<f2>") 'rgrep)
 (global-set-key (kbd "C-<return>") 'helm-M-x)
-(global-set-key (kbd "s-g") 'projectile-grep)
+(define-key prelude-mode-map (kbd "s-g") nil)
+
+(setq helm-command-prefix-key "C-c h")
+(global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "M-x") 'helm-M-x)
+
+;; Unbind C-x C-c when using a display
+(if window-system
+    (global-unset-key (kbd "C-x C-c")))
