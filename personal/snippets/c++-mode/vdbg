@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: VT_VDBG log message
+# key: vdbg
+# binding: direct-keybinding
+# --
+VT_VDBG (${1:1}, "${2:%s}", $0);

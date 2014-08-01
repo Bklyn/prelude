@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: for (C++0x auto/range)
+# key: for
+# --
+for (auto& ${1:iter} : ${2:var}) {
+    $0
+}
