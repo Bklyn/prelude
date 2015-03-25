@@ -12,14 +12,6 @@
      (eval-after-load "projectile"
        '(diminish 'projectile-mode "⌕"))))
 
-(require 'undo-tree)
-(global-undo-tree-mode 1)
-
-(eval-after-load "diminish"
-  '(progn
-     (eval-after-load "undo-tree"
-       '(diminish 'undo-tree-mode "↺"))))
-
 (eval-after-load "diminish"
   '(progn
      (eval-after-load "whitespace"
@@ -64,7 +56,7 @@
 (add-hook 'c-mode-common-hook 'company-mode)
 (add-hook 'c-mode-common-hook 'linum-mode)
 (add-hook 'c-mode-common-hook 'hs-minor-mode)
-(add-hook 'c-mode-common-hook 'hideshowvis-minor-mode)
+;; (add-hook 'c-mode-common-hook 'hideshowvis-minor-mode)
 
 ;; (Conditional) C/C++ Keybinds
 (add-hook 'c-mode-common-hook
