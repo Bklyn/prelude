@@ -1,9 +1,16 @@
+;;; caleb.el --- Personal Emacs customizations
+
+;;; Commentary:
+
+;;; Code:
 (setq prelude-guru nil)
 (setq sp-use-paredit-bindings nil)
-(setq smartparens-mode nil)
 (setq ibuffer-expert t)
 (desktop-save-mode 1)
-(remove-hook 'prog-mode 'flycheck-mode)
+
+;; Smartparens kinda sucks
+(setq smartparens-mode -1)
+(add-hook 'prog-mode-hook (lambda () (smartparens-mode -1)) t)
 
 (require 'diminish)
 
@@ -22,6 +29,7 @@
 (global-set-key [remap move-beginning-of-line] 'move-beginning-of-line)
 
 (global-set-key (kbd "<f2>") 'rgrep)
+(global-set-key (kbd "<XF86Search>") 'projectile-grep)
 (global-set-key (kbd "<f6>") 'projectile-compile-project)
 (global-set-key (kbd "<f7>") 'projectile-vc)
 (global-set-key (kbd "<f8>") 'vc-dir)
@@ -34,13 +42,13 @@
 ;; (global-set-key (kbd "M-x") 'helm-M-x)
 
 ;; Smex all the things!
-(require 'smex) ; Not needed if you use package.el
-(smex-initialize) ; Can be omitted. This might cause a (minimal) delay
-                  ; when Smex is auto-initialized on its first run.
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-;; This is your old M-x.
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+;; (require 'smex) ; Not needed if you use package.el
+;; (smex-initialize) ; Can be omitted. This might cause a (minimal) delay
+;;                   ; when Smex is auto-initialized on its first run.
+;; (global-set-key (kbd "M-x") 'smex)
+;; (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; ;; This is your old M-x.
+;; (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; Unbind C-x C-c when using a display
 (if window-system
@@ -55,7 +63,7 @@
 ;; (add-hook 'c-mode-common-hook 'fci-mode)
 (add-hook 'c-mode-common-hook 'company-mode)
 (add-hook 'c-mode-common-hook 'linum-mode)
-(add-hook 'c-mode-common-hook 'hs-minor-mode)
+;; (add-hook 'c-mode-common-hook 'hs-minor-mode)
 ;; (add-hook 'c-mode-common-hook 'hideshowvis-minor-mode)
 
 ;; (Conditional) C/C++ Keybinds
