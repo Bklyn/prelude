@@ -71,3 +71,9 @@
           (lambda () (local-set-key (kbd "<C-tab>") 'company-complete)))
 (add-hook 'c-mode-common-hook
           (lambda () (local-set-key (kbd "C-c j") 'find-tag)))
+
+;; See https://github.com/bbatsov/projectile/issues/523
+(setq projectile-mode-line " Projectile")
+
+;; This hook is super-annoying:
+(remove-hook 'find-file-hook 'prelude-reopen-as-root)
