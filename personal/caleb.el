@@ -11,6 +11,7 @@
 ;; Smartparens kinda sucks
 (setq smartparens-mode -1)
 (add-hook 'prog-mode-hook (lambda () (smartparens-mode -1)) t)
+(add-hook 'python-mode-hook (lambda () (anaconda-mode -1)) t)
 
 (require 'diminish)
 
@@ -77,3 +78,6 @@
 
 ;; This hook is super-annoying:
 (remove-hook 'find-file-hook 'prelude-reopen-as-root)
+
+;; I use underscore to mean underscore in my org-mode files
+(setq org-export-with-sub-superscripts nil)
