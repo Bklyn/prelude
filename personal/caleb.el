@@ -59,8 +59,8 @@
 ;; (setq-default fci-rule-column 80)    ;; Show column ruler at 80 columns
 (show-paren-mode 1)                  ;; Always attempt to show matching parentheses
 (global-hl-line-mode)                ;; Always highlight the current line
-(semantic-mode 1)            ;; CEDET holdover
-(global-ede-mode 1)          ;; CEDET holdover
+;; (semantic-mode 1)            ;; CEDET holdover
+;; (global-ede-mode 1)          ;; CEDET holdover
 ;; (add-hook 'c-mode-common-hook 'fci-mode)
 (add-hook 'c-mode-common-hook 'company-mode)
 (add-hook 'c-mode-common-hook 'linum-mode)
