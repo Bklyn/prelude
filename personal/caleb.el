@@ -27,13 +27,16 @@
      (eval-after-load "whitespace"
        '(diminish 'whitespace-mode ""))))
 
+(setq whitespace-line-column nil)
 (global-set-key [remap move-beginning-of-line] 'move-beginning-of-line)
 
 (global-set-key (kbd "<f2>") 'rgrep)
 (global-set-key (kbd "<XF86Search>") 'projectile-grep)
 (global-set-key (kbd "<f6>") 'projectile-compile-project)
+(global-set-key (kbd "<XF86Close>") 'projectile-compile-project)
 (global-set-key (kbd "<f7>") 'projectile-vc)
 (global-set-key (kbd "<f8>") 'vc-dir)
+(global-set-key (kbd "<XF86MailForward>") 'vc-dir)
 
 (global-set-key (kbd "C-<return>") 'helm-M-x)
 (define-key prelude-mode-map (kbd "s-g") nil)
