@@ -90,3 +90,6 @@
 
 ;; I use underscore to mean underscore in my org-mode files
 (setq org-export-with-sub-superscripts nil)
+
+;; Start the server
+(server-start)
