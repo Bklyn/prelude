@@ -91,5 +91,12 @@
 ;; I use underscore to mean underscore in my org-mode files
 (setq org-export-with-sub-superscripts nil)
 
+(use-package lastpass
+  :config
+  ;; Set lastpass user
+  (setq lastpass-user "lastpass-bklyn@sneakemail.com")
+  ;; Enable lastpass custom auth-source
+  (lastpass-auth-source-enable))
+
 ;; Start the server
 (server-start)
