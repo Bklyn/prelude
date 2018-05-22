@@ -73,7 +73,7 @@
 ;; (global-ede-mode 1)          ;; CEDET holdover
 ;; (add-hook 'c-mode-common-hook 'fci-mode)
 (add-hook 'c-mode-common-hook 'company-mode)
-(add-hook 'c-mode-common-hook 'linum-mode)
+(add-hook 'prelude-prog-mode-hook 'linum-mode t)
 ;; (add-hook 'c-mode-common-hook 'hs-minor-mode)
 ;; (add-hook 'c-mode-common-hook 'hideshowvis-minor-mode)
 
@@ -91,6 +91,23 @@
 
 ;; I use underscore to mean underscore in my org-mode files
 (setq org-export-with-sub-superscripts nil)
+
+;; Jesus christ, company + shell scripts is a mess
+(setq company-global-modes '(not shell-script-mode))
+
+;; From https://eklitzke.org/smarter-emacs-clang-format.  Enable
+;; clang-format if the Projectile root has a .clang-format
+(require 'f)
+(defun clang-format-buffer-smart ()
+  "Reformat buffer if .clang-format exists in the projectile root."
+  (when (f-exists? (expand-file-name ".clang-format" (projectile-project-root)))
+    (clang-format-buffer)))
+
+(defun clang-format-buffer-smart-on-save ()
+  "Add auto-save hook for clang-format-buffer-smart."
+  (add-hook 'before-save-hook 'clang-format-buffer-smart nil t))
+
+(add-hook 'c-mode-common-hook 'clang-format-buffer-smart-on-save t)
 
 ;; Start the server
 (server-start)

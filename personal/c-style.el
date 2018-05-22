@@ -40,12 +40,14 @@
   (c-toggle-electric-state 1)
   (c-toggle-auto-newline -1))
 
-;; (add-hook 'c++-mode-hook 'snail-style-c++-mode-hook)
-(add-hook 'prelude-c-mode-common-hook 'snail-style-c++-mode-hook)
+;; (add-hook 'prelude-c-mode-common-hook 'snail-style-c++-mode-hook)
 (add-hook 'prelude-c-mode-common-hook 'ggtags-mode)
 
 ;; Use C++ style for IDL files
-(add-hook 'idl-mode-hook 'snail-style-c++-mode-hook)
+;; (add-hook 'idl-mode-hook 'snail-style-c++-mode-hook)
+
+(add-hook 'prelude-c-mode-common-hook 'google-set-c-style)
+(add-hook 'idl-mode-hook 'google-set-c-style)
 
 ;; (sp-local-pair 'c-mode "(" nil :pre-handlers '(:rem " "))
 ;; (sp-local-pair 'c++-mode "(" nil :pre-handlers '(:rem " "))
