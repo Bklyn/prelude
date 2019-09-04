@@ -7,12 +7,17 @@
 (setq sp-use-paredit-bindings nil)
 (setq ibuffer-expert t)
 (desktop-save-mode 1)
+(global-undo-tree-mode -1)
 
 ;; Smartparens kinda sucks
 (setq smartparens-mode -1)
 (add-hook 'prog-mode-hook (lambda () (smartparens-mode -1)) t)
 (add-hook 'python-mode-hook (lambda () (anaconda-mode -1)) t)
-(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+;; (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+;; (add-hook 'python-mode-hook 'py-yapf-enable-on-save)
+(add-hook 'python-mode-hook 'blacken-mode)
+(add-hook 'python-mode-hook 'pylint-add-menu-items)
+(add-hook 'python-mode-hook 'pylint-add-key-bindings)
 
 (require 'diminish)
 
@@ -39,7 +44,6 @@
 (global-set-key (kbd "<f8>") 'vc-dir)
 (global-set-key (kbd "<XF86MailForward>") 'vc-dir)
 
-(require 'prelude-helm-everywhere)
 (global-set-key (kbd "C-<return>") 'helm-M-x)
 ;; (setq helm-command-prefix-key "C-c h")
 ;; (global-set-key (kbd "C-x b") 'helm-mini)
